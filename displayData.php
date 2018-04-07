@@ -2,6 +2,8 @@
     function displayInfo() {
         include('connection.php');
 
+        $conn = getConnection();
+        
         $sql = "SELECT Fname, Lname FROM person P JOIN customer C ON P.Ssn=C.Cust_Ssn;";
         $result = $conn->query($sql);
 
