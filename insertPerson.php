@@ -1,5 +1,5 @@
 <?php
-    function insertData() {
+    function insertPerson($Name, $Ssn, $PhoneNo) {
         $conn = mysqli_connect("localhost", "root", "root", "project");
 
         if (!$conn) {
@@ -9,13 +9,16 @@
             exit;
         }
 
+//check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "INSERT INTO `person`(`Ssn`, `Fname`, `Lname`, `PhoneNo`)
-VALUES ('TEST', 'TEST', 'TEST', 'TEST')";
+//SQL code
+$sql = "INSERT INTO `person`(`Name`, `Ssn`, `PhoneNo`)
+VALUES ('$Name', '$Ssn', '$PhoneNo')";
 
+//success or error check 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
