@@ -17,6 +17,8 @@
 		<?php
 			include('displayData.php');
 			displayInfo();
+			//include ('insertPerson.php');
+			//insertPerson("T.Test", "TEST", "Test");
 		?>
 
 	</body>
