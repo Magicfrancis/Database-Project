@@ -19,7 +19,13 @@
 			displayInfo();
 			include ('insertPerson.php');
 			//insertItem("t", "test.png", "subject", "description", "test");
-			//insertCustomer("Francis", "972-878-4825", "testSSN", "email@email.com", "Address", "Username", "Password");
+			//insertCustomer("CFrancis", "972-878-4825", "testSSN", "email@email.com", "Address", "Username", "Password");
+			//insertAuthor("AFrancis", "972-123-1225", "test2SSN");
+			//insertDirector("DFrancis", "872-123-1225", "test3SSN");
+			//insertJournalist("JFrancis", "872-133-1225", "test4SSN");
+			//insertStaff("SFrancis", "072-133-1225", "test4SSN");
+
+
 		?>
 
 	</body>
