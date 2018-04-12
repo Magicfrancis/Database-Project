@@ -17,8 +17,9 @@
 		<?php
 			include('displayData.php');
 			displayInfo();
-			//include ('insertPerson.php');
-			//insertPerson("T.Test", "TEST", "Test");
+			include ('insertPerson.php');
+			//insertItem("t", "test.png", "subject", "description", "test");
+			//insertCustomer("Francis", "972-878-4825", "testSSN", "email@email.com", "Address", "Username", "Password");
 		?>
 
 	</body>
