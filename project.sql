@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 14, 2018 at 07:28 AM
+-- Generation Time: Apr 14, 2018 at 09:08 AM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.1.7
 
@@ -73,7 +73,6 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`Cust_Ssn`, `IDno`, `Email`, `Address`, `Created_date`, `Username`, `Password`) VALUES
 ('294827566', 100, '1', '12312', '2018-04-14 07:26:43', '1', '1'),
-('684324569', 1, 'B.Moby@email.com', '3928 Super Villa', '2018-04-09 04:13:09', 'B.Moby1', 'happy123'),
 ('948693832', 100011231, 'mcdonald@email.com', '1222 West Lane, Arlington TX, 78544', '2018-04-01 00:00:00', 'McDonny', 'pass12311');
 
 -- --------------------------------------------------------
@@ -112,7 +111,8 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`Item_ID`, `Item_Image`, `Subject`, `Description`, `NAME`) VALUES
-('123456789', 'image', 'Science', 'Book about science', 'Science Book');
+('123456789', 'image', 'Science', 'Book about science', 'Science Book'),
+('2', '222', '2', '2', '2');
 
 -- --------------------------------------------------------
 
@@ -156,6 +156,7 @@ INSERT INTO `movie` (`ID`, `Director_Ssn`) VALUES
 --
 
 CREATE TABLE `orders` (
+  `Order_ID` int(9) NOT NULL,
   `Item_ID` varchar(9) NOT NULL,
   `Cust_ID` int(9) NOT NULL DEFAULT '0',
   `Order_date` date NOT NULL,
@@ -167,8 +168,9 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`Item_ID`, `Cust_ID`, `Order_date`, `Payment_Option`, `Price`) VALUES
-('123456789', 1, '2018-04-02', 'Cash', 10.99);
+INSERT INTO `orders` (`Order_ID`, `Item_ID`, `Cust_ID`, `Order_date`, `Payment_Option`, `Price`) VALUES
+(1, '2', 100, '2018-04-14', 'Cash', 188.00),
+(2, '123456789', 100, '2018-04-14', 'Cash', 100.00);
 
 -- --------------------------------------------------------
 
@@ -310,8 +312,9 @@ ALTER TABLE `movie`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`Item_ID`,`Cust_ID`),
-  ADD KEY `Cust_ID` (`Cust_ID`);
+  ADD PRIMARY KEY (`Order_ID`,`Item_ID`,`Cust_ID`),
+  ADD KEY `Item_ID` (`Item_ID`),
+  ADD KEY `orders_ibfk_1` (`Cust_ID`);
 
 --
 -- Indexes for table `periodical`
@@ -347,6 +350,11 @@ ALTER TABLE `staff`
 --
 ALTER TABLE `customer`
   MODIFY `IDno` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100011233;
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `Order_ID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
@@ -393,8 +401,8 @@ ALTER TABLE `movie`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`Item_ID`) REFERENCES `item` (`Item_ID`),
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`Cust_ID`) REFERENCES `customer` (`IDno`);
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`Cust_ID`) REFERENCES `customer` (`IDno`) ON DELETE CASCADE,
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`Item_ID`) REFERENCES `item` (`Item_ID`);
 
 --
 -- Constraints for table `periodical`

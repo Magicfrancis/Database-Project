@@ -16,6 +16,8 @@
 		<a href="orderForm.php">Create order</a>
 		<br/>
 		<a href="getOrderForm.php">Get Order Details</a>
+		<br/>
+		<a href="deleteCustomerForm.php">Delete Customer</a>
 		<?php
 			include('displayData.php');
 			displayInfo();
