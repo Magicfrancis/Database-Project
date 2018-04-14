@@ -18,6 +18,8 @@
 		<a href="getOrderForm.php">Get Order Details</a>
 		<br/>
 		<a href="deleteCustomerForm.php">Delete Customer</a>
+		<br/>
+		<a href="getPriceOnDay.php">Get Item Price on specific day</a>
 		<?php
 			include('displayData.php');
 			displayInfo();
