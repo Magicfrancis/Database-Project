@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 14, 2018 at 10:14 PM
+-- Generation Time: Apr 14, 2018 at 10:22 PM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.1.5
 
@@ -163,14 +163,6 @@ CREATE TABLE `orders` (
   `Payment_Option` varchar(10) NOT NULL,
   `Price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`Order_ID`, `Item_ID`, `Cust_ID`, `Order_date`, `Payment_Option`, `Price`) VALUES
-(1, '2', 100, '2018-04-14', 'Cash', 188.00),
-(2, '123456789', 100, '2018-04-14', 'Cash', 100.00);
 
 -- --------------------------------------------------------
 
@@ -400,6 +392,13 @@ ALTER TABLE `journalist`
 ALTER TABLE `movie`
   ADD CONSTRAINT `movie_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `item` (`Item_ID`),
   ADD CONSTRAINT `movie_ibfk_2` FOREIGN KEY (`Director_Ssn`) REFERENCES `director` (`D_Ssn`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`Cust_ID`) REFERENCES `customer` (`IDno`),
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`Item_ID`) REFERENCES `item` (`Item_ID`);
 
 --
 -- Constraints for table `periodical`
