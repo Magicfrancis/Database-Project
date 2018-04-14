@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 09, 2018 at 05:15 AM
+-- Generation Time: Apr 14, 2018 at 07:28 AM
 -- Server version: 5.6.34-log
--- PHP Version: 7.1.5
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -72,7 +72,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`Cust_Ssn`, `IDno`, `Email`, `Address`, `Created_date`, `Username`, `Password`) VALUES
-('684324569', 1, 'B.Moby@email.com', '3928 Super Villa', '2018-04-09 04:13:09', 'B.Moby1', 'happy123');
+('294827566', 100, '1', '12312', '2018-04-14 07:26:43', '1', '1'),
+('684324569', 1, 'B.Moby@email.com', '3928 Super Villa', '2018-04-09 04:13:09', 'B.Moby1', 'happy123'),
+('948693832', 100011231, 'mcdonald@email.com', '1222 West Lane, Arlington TX, 78544', '2018-04-01 00:00:00', 'McDonny', 'pass12311');
 
 -- --------------------------------------------------------
 
@@ -83,6 +85,13 @@ INSERT INTO `customer` (`Cust_Ssn`, `IDno`, `Email`, `Address`, `Created_date`, 
 CREATE TABLE `director` (
   `D_Ssn` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `director`
+--
+
+INSERT INTO `director` (`D_Ssn`) VALUES
+('395810475');
 
 -- --------------------------------------------------------
 
@@ -98,6 +107,13 @@ CREATE TABLE `item` (
   `NAME` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `item`
+--
+
+INSERT INTO `item` (`Item_ID`, `Item_Image`, `Subject`, `Description`, `NAME`) VALUES
+('123456789', 'image', 'Science', 'Book about science', 'Science Book');
+
 -- --------------------------------------------------------
 
 --
@@ -107,6 +123,13 @@ CREATE TABLE `item` (
 CREATE TABLE `journalist` (
   `J_Ssn` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `journalist`
+--
+
+INSERT INTO `journalist` (`J_Ssn`) VALUES
+('59302843');
 
 -- --------------------------------------------------------
 
@@ -119,6 +142,13 @@ CREATE TABLE `movie` (
   `Director_Ssn` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `movie`
+--
+
+INSERT INTO `movie` (`ID`, `Director_Ssn`) VALUES
+('123456789', '395810475');
+
 -- --------------------------------------------------------
 
 --
@@ -127,11 +157,18 @@ CREATE TABLE `movie` (
 
 CREATE TABLE `orders` (
   `Item_ID` varchar(9) NOT NULL,
-  `Cust_ID` varchar(9) NOT NULL,
+  `Cust_ID` int(9) NOT NULL DEFAULT '0',
   `Order_date` date NOT NULL,
   `Payment_Option` varchar(10) NOT NULL,
   `Price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`Item_ID`, `Cust_ID`, `Order_date`, `Payment_Option`, `Price`) VALUES
+('123456789', 1, '2018-04-02', 'Cash', 10.99);
 
 -- --------------------------------------------------------
 
@@ -162,7 +199,7 @@ CREATE TABLE `person` (
 --
 
 INSERT INTO `person` (`Name`, `Ssn`, `PhoneNo`) VALUES
-('J.Smith', '294827195', '294-392-2943'),
+('J.Smith', '294827566', '294-392-2943'),
 ('C.Boseman', '294830235', '294-992-2003'),
 ('S.Jefferso', '395039291', '975-083-7890'),
 ('A.Lee', '395810475', '193-683-0695'),
@@ -194,6 +231,13 @@ CREATE TABLE `publisher` (
   `P_ID` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `publisher`
+--
+
+INSERT INTO `publisher` (`P_Ssn`, `P_ID`) VALUES
+('947895321', '555667899');
+
 -- --------------------------------------------------------
 
 --
@@ -203,6 +247,13 @@ CREATE TABLE `publisher` (
 CREATE TABLE `staff` (
   `S_Ssn` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`S_Ssn`) VALUES
+('799765435');
 
 --
 -- Indexes for dumped tables
@@ -259,7 +310,8 @@ ALTER TABLE `movie`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`Item_ID`,`Cust_ID`);
+  ADD PRIMARY KEY (`Item_ID`,`Cust_ID`),
+  ADD KEY `Cust_ID` (`Cust_ID`);
 
 --
 -- Indexes for table `periodical`
@@ -294,7 +346,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `IDno` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `IDno` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100011233;
 --
 -- Constraints for dumped tables
 --
@@ -341,7 +393,8 @@ ALTER TABLE `movie`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`Item_ID`) REFERENCES `item` (`Item_ID`);
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`Item_ID`) REFERENCES `item` (`Item_ID`),
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`Cust_ID`) REFERENCES `customer` (`IDno`);
 
 --
 -- Constraints for table `periodical`

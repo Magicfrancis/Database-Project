@@ -8,12 +8,8 @@
 
 		<h1>Database Project</h1>
 
-		<form action="customerUpdate.php" method="post">
-			Name: <input type="text" name="name"><br>
-			E-mail: <input type="text" name="email"><br>
-			<input type="submit">
-		</form>
-		
+
+		<a href="customerForm.php">Customer Update</a>
 		<?php
 			include('displayData.php');
 			displayInfo();
@@ -25,6 +21,11 @@
 			//insertJournalist("JFrancis", "872-133-1225", "test4SSN");
 			//insertStaff("SFrancis", "072-133-1225", "test4SSN");
 
+			// echo "<form action="customerUpdate.php" method="post">";
+	    //   echo "Name: <input type="text" name="name"><br>";
+	    //   echo "E-mail: <input type="text" name="email"><br>";
+	    //   echo "<input type="submit">";
+	    // echo "</form>";
 
 		?>
 

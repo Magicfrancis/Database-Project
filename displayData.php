@@ -3,11 +3,26 @@
         include('connection.php');
 
         $conn = getConnection();
-        
+
+        $sql = "SELECT name FROM person;";
+        $result = $conn->query($sql);
+
+        echo "<br />";
+        echo "<br>". 'People'. "<br>";
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "Name: " . $row["name"] .  "<br>";
+            }
+        } else {
+            echo "0 results" . "<br>";
+        }
+
+
         $sql = "SELECT Name FROM person P JOIN customer C ON P.Ssn=C.Cust_Ssn;";
         $result = $conn->query($sql);
 
-        echo 'Customers'. "<br>";
+        echo "<br>". 'Customers'. "<br>";
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
@@ -43,7 +58,7 @@
         } else {
             echo "0 results" . "<br>";
         }
-		
+
 		$sql = "SELECT Name FROM person P JOIN author A ON P.Ssn=A.A_Ssn";
         $result = $conn->query($sql);
         echo "<br>";
@@ -68,8 +83,8 @@
             }
         } else {
             echo "0 results" . "<br>";
-        }			
-		
+        }
+
         $sql = "SELECT Name FROM person P JOIN publisher Pub ON P.Ssn=Pub.P_Ssn";
         $result = $conn->query($sql);
         echo "<br>";
@@ -78,8 +93,8 @@
             // output data of each row
             while($row = $result->fetch_assoc()) {
                 echo "Name: " . $row["Name"] .  "<br>";
-            }			
-			
+            }
+
         } else {
             echo "0 results" . "<br>";
         }
