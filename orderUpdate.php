@@ -15,14 +15,12 @@
 	        if ($conn->connect_error) {
 	            die("Connection failed: " . $conn->connect_error);
 	        }
-					$nowFormat = date('Y-m-d H:i:s');
-					$ssn = $_POST["cust_ssn"];
-					$id = $_POST["cust_id"];
-					$email = $_POST["cust_email"];
-					$address = $_POST["cust_address"];
-					$user = $_POST["cust_user"];
-					$pass = $_POST["cust_pass"];
-					$sql = "INSERT INTO `customer` (`Cust_Ssn`, `IDno`, `Email`, `Address`, `Created_date`, `Username`, `Password`) VALUES ('$ssn', '$id', '$email', '$address', '$nowFormat', '$user', '$pass');";
+					$id = $_POST["order_id"];
+					$c_id = $_POST["order_cust_id"];
+          $date = date('Y-m-d');
+					$payment = $_POST["order_payment"];
+					$price = $_POST["order_price"];
+					$sql = "INSERT INTO `orders` (`Item_ID`, `Cust_ID`, `Order_date`, `Payment_Option`, `Price`) VALUES ('$id', '$c_id', '$date', '$payment', '$price');";
 					if ($conn->query($sql) === TRUE) {
     				echo "New record created successfully";
 					} else {
@@ -30,8 +28,6 @@
 					}
 		?>
 
-	Welcome <?php echo $_POST["cust_user"]; ?><br>
-	Your email address is: <?php echo $_POST["cust_email"]; ?>
 	<br/>
 
 		<?php include('goToHome.php');?>

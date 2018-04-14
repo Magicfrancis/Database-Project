@@ -10,6 +10,12 @@
 
 
 		<a href="customerForm.php">Customer Update</a>
+		<br/>
+		<a href="itemForm.php">Item Update</a>
+		<br/>
+		<a href="orderForm.php">Create order</a>
+		<br/>
+		<a href="getOrderForm.php">Get Order Details</a>
 		<?php
 			include('displayData.php');
 			displayInfo();
