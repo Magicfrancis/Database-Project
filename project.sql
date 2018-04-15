@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 14, 2018 at 09:08 AM
+-- Generation Time: Apr 14, 2018 at 10:22 PM
 -- Server version: 5.6.34-log
--- PHP Version: 7.1.7
+-- PHP Version: 7.1.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -164,14 +164,6 @@ CREATE TABLE `orders` (
   `Price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`Order_ID`, `Item_ID`, `Cust_ID`, `Order_date`, `Payment_Option`, `Price`) VALUES
-(1, '2', 100, '2018-04-14', 'Cash', 188.00),
-(2, '123456789', 100, '2018-04-14', 'Cash', 100.00);
-
 -- --------------------------------------------------------
 
 --
@@ -180,7 +172,7 @@ INSERT INTO `orders` (`Order_ID`, `Item_ID`, `Cust_ID`, `Order_date`, `Payment_O
 
 CREATE TABLE `periodical` (
   `ID` varchar(9) NOT NULL,
-  `JOURNALIST_Ssn` varchar(9) NOT NULL,
+  `Journalist_Ssn` varchar(9) NOT NULL,
   `Pub_ID` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -272,7 +264,8 @@ ALTER TABLE `author`
 --
 ALTER TABLE `book`
   ADD PRIMARY KEY (`ID`,`Author_Ssn`),
-  ADD KEY `Author_Ssn` (`Author_Ssn`);
+  ADD KEY `Author_Ssn` (`Author_Ssn`),
+  ADD KEY `book_ibfk_3` (`Pub_ID`);
 
 --
 -- Indexes for table `customer`
@@ -320,8 +313,9 @@ ALTER TABLE `orders`
 -- Indexes for table `periodical`
 --
 ALTER TABLE `periodical`
-  ADD PRIMARY KEY (`ID`,`JOURNALIST_Ssn`),
-  ADD KEY `JOURNALIST_Ssn` (`JOURNALIST_Ssn`);
+  ADD PRIMARY KEY (`ID`,`Journalist_Ssn`),
+  ADD KEY `Journalist_Ssn` (`Journalist_Ssn`),
+  ADD KEY `periodical_ibfk_3` (`Pub_ID`);
 
 --
 -- Indexes for table `person`
@@ -333,7 +327,8 @@ ALTER TABLE `person`
 -- Indexes for table `publisher`
 --
 ALTER TABLE `publisher`
-  ADD PRIMARY KEY (`P_Ssn`,`P_ID`);
+  ADD PRIMARY KEY (`P_ID`,`P_Ssn`),
+  ADD KEY `publisher_ibfk_1` (`P_Ssn`);
 
 --
 -- Indexes for table `staff`
@@ -370,7 +365,8 @@ ALTER TABLE `author`
 --
 ALTER TABLE `book`
   ADD CONSTRAINT `book_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `item` (`Item_ID`),
-  ADD CONSTRAINT `book_ibfk_2` FOREIGN KEY (`Author_Ssn`) REFERENCES `author` (`A_Ssn`);
+  ADD CONSTRAINT `book_ibfk_2` FOREIGN KEY (`Author_Ssn`) REFERENCES `author` (`A_Ssn`),
+  ADD CONSTRAINT `book_ibfk_3` FOREIGN KEY (`Pub_ID`) REFERENCES `publisher` (`P_ID`);
 
 --
 -- Constraints for table `customer`
@@ -401,7 +397,7 @@ ALTER TABLE `movie`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`Cust_ID`) REFERENCES `customer` (`IDno`) ON DELETE CASCADE,
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`Cust_ID`) REFERENCES `customer` (`IDno`),
   ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`Item_ID`) REFERENCES `item` (`Item_ID`);
 
 --
@@ -409,7 +405,8 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `periodical`
   ADD CONSTRAINT `periodical_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `item` (`Item_ID`),
-  ADD CONSTRAINT `periodical_ibfk_2` FOREIGN KEY (`JOURNALIST_Ssn`) REFERENCES `journalist` (`J_Ssn`);
+  ADD CONSTRAINT `periodical_ibfk_2` FOREIGN KEY (`Journalist_Ssn`) REFERENCES `journalist` (`J_Ssn`),
+  ADD CONSTRAINT `periodical_ibfk_3` FOREIGN KEY (`Pub_ID`) REFERENCES `publisher` (`P_ID`);
 
 --
 -- Constraints for table `publisher`
