@@ -20,6 +20,9 @@
 		<a href="deleteCustomerForm.php">Delete Customer</a>
 		<br/>
 		<a href="getPriceOnDay.php">Get Item Price on specific day</a>
+		<br/>
+		<a href="updatePriceForm.php">Make all item on sale</a>
+		<br/>
 		<?php
 			include('displayData.php');
 			displayInfo();

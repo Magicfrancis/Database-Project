@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 14, 2018 at 10:22 PM
+-- Generation Time: Apr 15, 2018 at 05:48 AM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.1.5
 
@@ -50,6 +50,13 @@ CREATE TABLE `book` (
   `Author_Ssn` varchar(9) NOT NULL,
   `Pub_ID` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `book`
+--
+
+INSERT INTO `book` (`ID`, `Author_Ssn`, `Pub_ID`) VALUES
+('123456789', '805274681', '555667899');
 
 -- --------------------------------------------------------
 
@@ -103,6 +110,8 @@ CREATE TABLE `item` (
   `Item_Image` varchar(30) NOT NULL,
   `Subject` varchar(20) NOT NULL,
   `Description` varchar(100) NOT NULL,
+  `Quantity` int(255) UNSIGNED NOT NULL,
+  `Price` float(10,2) UNSIGNED NOT NULL,
   `NAME` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -110,9 +119,10 @@ CREATE TABLE `item` (
 -- Dumping data for table `item`
 --
 
-INSERT INTO `item` (`Item_ID`, `Item_Image`, `Subject`, `Description`, `NAME`) VALUES
-('123456789', 'image', 'Science', 'Book about science', 'Science Book'),
-('2', '222', '2', '2', '2');
+INSERT INTO `item` (`Item_ID`, `Item_Image`, `Subject`, `Description`, `Quantity`, `Price`, `NAME`) VALUES
+('1000', 'titanic.png', 'Romance', 'lover on ship', 1000, 1000.00, 'Titanic'),
+('123456789', 'image', 'Science', 'Book about science', 0, 1.00, 'Science Book'),
+('2000', 'nyt.png', 'informational', 'daily news', 200, 1.50, 'New York Time');
 
 -- --------------------------------------------------------
 
@@ -147,7 +157,7 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`ID`, `Director_Ssn`) VALUES
-('123456789', '395810475');
+('1000', '395810475');
 
 -- --------------------------------------------------------
 
@@ -175,6 +185,13 @@ CREATE TABLE `periodical` (
   `Journalist_Ssn` varchar(9) NOT NULL,
   `Pub_ID` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `periodical`
+--
+
+INSERT INTO `periodical` (`ID`, `Journalist_Ssn`, `Pub_ID`) VALUES
+('2000', '59302843', '555667899');
 
 -- --------------------------------------------------------
 
@@ -247,7 +264,8 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`S_Ssn`) VALUES
-('799765435');
+('799765435'),
+('940389123');
 
 --
 -- Indexes for dumped tables
@@ -344,12 +362,12 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `IDno` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100011233;
+  MODIFY `IDno` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100011232;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `Order_ID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Order_ID` int(9) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
