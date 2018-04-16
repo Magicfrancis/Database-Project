@@ -5,7 +5,7 @@
         $conn = getConnection();
 
 		//ITEM
-		$sql = "SELECT name, quantity, price FROM item GROUP BY name;";
+		$sql = "SELECT name, quantity, Cost FROM item GROUP BY name;";
         $result = $conn->query($sql);
 
         echo "<br />";
@@ -13,13 +13,13 @@
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                echo "Name: " . $row["name"] ." Quantity: " . $row["quantity"] ." Price: $" . $row["price"] .  "<br>";
+                echo "Name: " . $row["name"] ." Quantity: " . $row["quantity"] ." Cost: $" . $row["Cost"] .  "<br>";
             }
         } else {
             echo "0 results" . "<br>";
         }
 		//BOOK
-		$sql = "SELECT name, subject, quantity, price FROM item I JOIN book B ON I.Item_ID = B.ID GROUP BY name;";
+		$sql = "SELECT name, subject, quantity, Cost FROM item I JOIN book B ON I.Item_ID = B.ID GROUP BY name;";
         $result = $conn->query($sql);
 
         echo "<br />";
@@ -27,13 +27,13 @@
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                echo "Name: " . $row["name"] ." Subject: " . $row["subject"] ." Quantity: " . $row["quantity"] ." Price: $" . $row["price"] .  "<br>";
+                echo "Name: " . $row["name"] ." Subject: " . $row["subject"] ." Quantity: " . $row["quantity"] ." Cost: $" . $row["Cost"] .  "<br>";
             }
         } else {
             echo "0 results" . "<br>";
         }
 		//Periodical
-		$sql = "SELECT name, subject ,quantity, price FROM item I JOIN periodical P ON I.Item_ID = P.ID GROUP BY name;";
+		$sql = "SELECT name, subject ,quantity, Cost FROM item I JOIN periodical P ON I.Item_ID = P.ID GROUP BY name;";
         $result = $conn->query($sql);
 
         echo "<br />";
@@ -41,13 +41,13 @@
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                echo "Name: " . $row["name"] ." Subject: " . $row["subject"] ." Quantity: " . $row["quantity"] ." Price: $" . $row["price"] .  "<br>";
+                echo "Name: " . $row["name"] ." Subject: " . $row["subject"] ." Quantity: " . $row["quantity"] ." Cost: $" . $row["Cost"] .  "<br>";
             }
         } else {
             echo "0 results" . "<br>";
         }
 		//Movie
-		$sql = "SELECT name, subject, quantity, price FROM item I JOIN movie M ON I.Item_ID = M.ID GROUP BY name;";
+		$sql = "SELECT name, subject, quantity, Cost FROM item I JOIN movie M ON I.Item_ID = M.ID GROUP BY name;";
         $result = $conn->query($sql);
 
         echo "<br />";
@@ -55,7 +55,7 @@
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                echo "Name: " . $row["name"] ." Subject: " . $row["subject"] ." Quantity: " . $row["quantity"] ." Price: $" . $row["price"] .  "<br>";
+                echo "Name: " . $row["name"] ." Subject: " . $row["subject"] ." Quantity: " . $row["quantity"] ." Cost: $" . $row["Cost"] .  "<br>";
             }
         } else {
             echo "0 results" . "<br>";
