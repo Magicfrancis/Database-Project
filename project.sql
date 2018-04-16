@@ -374,7 +374,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `Order_ID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Order_ID` int(9) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
