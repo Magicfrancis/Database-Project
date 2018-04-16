@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 15, 2018 at 05:48 AM
+-- Generation Time: Apr 16, 2018 at 04:31 AM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.1.5
 
@@ -111,7 +111,7 @@ CREATE TABLE `item` (
   `Subject` varchar(20) NOT NULL,
   `Description` varchar(100) NOT NULL,
   `Quantity` int(255) UNSIGNED NOT NULL,
-  `Price` float(10,2) UNSIGNED NOT NULL,
+  `Cost` float(10,2) UNSIGNED NOT NULL,
   `NAME` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -119,10 +119,10 @@ CREATE TABLE `item` (
 -- Dumping data for table `item`
 --
 
-INSERT INTO `item` (`Item_ID`, `Item_Image`, `Subject`, `Description`, `Quantity`, `Price`, `NAME`) VALUES
-('1000', 'titanic.png', 'Romance', 'lover on ship', 1000, 1000.00, 'Titanic'),
-('123456789', 'image', 'Science', 'Book about science', 0, 1.00, 'Science Book'),
-('2000', 'nyt.png', 'informational', 'daily news', 200, 1.50, 'New York Time');
+INSERT INTO `item` (`Item_ID`, `Item_Image`, `Subject`, `Description`, `Quantity`, `Cost`, `NAME`) VALUES
+('1000', 'titanic.png', 'Romance', 'lover on ship', 1000, 20.00, 'Titanic'),
+('123456789', 'image', 'Science', 'Book about science', 0, 200.00, 'Science Book'),
+('2000', 'nyt.png', 'informational', 'daily news', 200, 2.50, 'New York Time');
 
 -- --------------------------------------------------------
 
@@ -173,6 +173,13 @@ CREATE TABLE `orders` (
   `Payment_Option` varchar(10) NOT NULL,
   `Price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`Order_ID`, `Item_ID`, `Cust_ID`, `Order_date`, `Payment_Option`, `Price`) VALUES
+(1, '2000', 100, '2018-04-03', 'CASH', 1000.00);
 
 -- --------------------------------------------------------
 

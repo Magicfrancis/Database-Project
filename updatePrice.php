@@ -18,7 +18,7 @@
 					$sale = $_POST["sale"];
 					$calculate = (100 - $sale)/100;
 
-					$sql = "UPDATE item I SET I.Price = (I.Price * $calculate);";
+					$sql = "UPDATE item I SET I.Cost = (I.Cost * $calculate);";
 					if ($conn->query($sql) === TRUE) {
     				echo "New record created successfully";
 					} else {
