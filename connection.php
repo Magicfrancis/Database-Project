@@ -1,4 +1,5 @@
 <?php 
+	   //used to set up connection to DBMS
 	   function getConnection() {
             $conn = mysqli_connect("localhost", "root", "root", "project");
 
