@@ -156,5 +156,59 @@
         }
         $conn->close();
     }
+	function displayAuthor() {
 
+        include('connection.php');
+        $conn = getConnection();
+		//AUTHOR		
+		$sql = "SELECT Name FROM person P JOIN author A ON P.Ssn=A.A_Ssn GROUP BY name";
+        $result = $conn->query($sql);
+        echo "<br>";
+        echo 'Author'. "<br>";
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "Name: " . $row["Name"] .  "<br>";
+            }
+        } else {
+            echo "0 results" . "<br>";
+        }		
+	}
+	function displayJournalist() {
+
+        include('connection.php');
+        $conn = getConnection();
+		//JOURNALIST		
+        $sql = "SELECT Name FROM person P JOIN journalist J ON P.Ssn=J.J_Ssn GROUP BY name";
+        $result = $conn->query($sql);
+        echo "<br>";
+        echo 'Journalist'. "<br>";
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "Name: " . $row["Name"] .  "<br>";
+            }
+        } else {
+            echo "0 results" . "<br>";
+        }	
+	}
+	function displayItem() {
+
+        include('connection.php');
+        $conn = getConnection();
+		//ITEM
+		$sql = "SELECT name, quantity, Cost FROM item GROUP BY name;";
+        $result = $conn->query($sql);
+
+        echo "<br />";
+        echo "<br>". 'Item'. "<br>";
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "Name: " . $row["name"] ." Quantity: " . $row["quantity"] ." Cost: $" . $row["Cost"] .  "<br>";
+            }
+        } else {
+            echo "0 results" . "<br>";
+        }		
+	}	
 ?>
