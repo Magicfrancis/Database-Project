@@ -1,22 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 16, 2018 at 04:31 AM
--- Server version: 5.6.34-log
--- PHP Version: 7.1.5
+-- Host: localhost
+-- Generation Time: Apr 22, 2018 at 07:53 PM
+-- Server version: 5.6.38
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `project`
@@ -79,8 +71,26 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`Cust_Ssn`, `IDno`, `Email`, `Address`, `Created_date`, `Username`, `Password`) VALUES
-('294827566', 100, '1', '12312', '2018-04-14 07:26:43', '1', '1'),
-('948693832', 100011231, 'mcdonald@email.com', '1222 West Lane, Arlington TX, 78544', '2018-04-01 00:00:00', 'McDonny', 'pass12311');
+('294827566', 100, 'smiths88@hotmail.com', '4513 Mill Street Tampa, FL 33611', '2018-04-14 07:26:43', 'smiths88', '2018lock'),
+('294830235', 100192818, 'soundwavez94@hotmail.com', '435 Rose Avenue New Orleans, LA', '2018-04-21 11:52:26', 'bose94max', 'z9z40017'),
+('294830235', 102918237, 'sound94wavez@hotmail.com', '435 Rose Avenue New Orleans, LA', '2018-04-05 03:37:16', 'bose94man', 'z9z40017'),
+('395039291', 950482084, 'samueljerry@yahoo.com', '3996 Old House Drive Hopedale, OH', '2018-04-12 13:24:22', 'J5ffUser', 'jeff123Pass'),
+('593067832', 293840587, 'bryantpersonal@gmail.com', '4664 Twin Oaks Drive Ben Harbor, MI 49022', '2018-04-02 06:24:06', 'KingOak12', '67mammwm'),
+('682940581', 948372054, 'mrsmith50904@gmail.com', '3733 Gateway Road Portland, OR', '2018-04-19 07:23:23', 'timesmith904', 'bored50904'),
+('684324569', 958374038, '938mobys@yahoo.com', '1849 Post Farm Road Atlanta, GA 30305', '2018-04-04 10:18:26', 'theReal1111', 'ydf96c7g'),
+('794562340', 984849300, '1Wavy1Funk1@live.com', '1658 Preston Street Wichita, KS', '2018-04-13 15:53:45', 'wavVibes', 'mus8594ic'),
+('799765435', 959028274, 'messironald@hotmail.com', '2810 Corpening Drive Farmington, MI', '2018-04-26 11:28:26', 'soccerfan79', 'football79'),
+('805274681', 758493027, 'txLong5081@yahoo.com', '98 Cambridge Drive Phoenix, AZ', '2018-04-13 14:40:52', 'txLong5081', 'TexasBorn90'),
+('847964254', 838389453, 'HalfFullcup50@gmail.com', '3009 Johnny Lane New Berlin, WI', '2018-04-11 09:34:29', 'Rarity76', '55Champions'),
+('890654324', 893027499, 'potterand12@gmail.com', '1380 Lynn Street Boston, MA 02107', '2018-04-11 04:24:00', 'driftbob87', 'iue12and'),
+('890654324', 938473320, '3333treyday@live.com', '3007 Mesa Drive Las Vegas, NV 81902', '2018-04-04 01:05:17', 'Rockets3', 'fk55xzet'),
+('896422568', 327839211, 'blakejam32@aol.com', '495 Meadow Lane Kelseyville, CA', '2018-04-22 20:49:47', 'Showtime32', 'pastnpresent'),
+('930286172', 1293827171, 'stylish7@yahoo.com', '1080 Grey Fox Farm Road Houston, TX 77209', '2018-04-19 09:00:33', 'HOUSTONs7', 'hdy897work'),
+('940389123', 847373390, 'zzzpath3000@gmail.com', '2535 Longview Avenue, New York', '2018-04-15 03:00:00', 'Powerstrong8', 'parkbound8'),
+('947895321', 992021756, 'ccdentistrys@gmail.com', '2283 Stoneybrook Road Cary, NC 27513', '2018-04-07 04:10:38', 'CC2018', '9ds95u5m'),
+('948693832', 100011231, 'mcdonald@email.com', '1222 West Lane, Arlington TX, 78544', '2018-04-01 00:00:00', 'McDonny', 'pass12311'),
+('968427641', 928374443, 'jeffdafisher@aol.com', '1263 Callison Lane Wilmington, DE', '2018-04-22 08:16:09', 'fishstar65', 'thefishboy11'),
+('993765478', 129485729, 'davids_2018@yahoo.com', '4816 Shearwood Forest Drive Salem, NH', '2018-04-01 17:48:47', 'newDavidact', 'dio0w98');
 
 -- --------------------------------------------------------
 
@@ -120,9 +130,26 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`Item_ID`, `Item_Image`, `Subject`, `Description`, `Quantity`, `Cost`, `NAME`) VALUES
-('1000', 'titanic.png', 'Romance', 'lover on ship', 1000, 20.00, 'Titanic'),
-('123456789', 'image', 'Science', 'Book about science', 0, 200.00, 'Science Book'),
-('2000', 'nyt.png', 'informational', 'daily news', 200, 2.50, 'New York Time');
+('100', 'row_boat.jpg', 'Mystery', 'Nine people venture to a mysterious island', 9, 17.99, 'And Then There Were None'),
+('1000', 'titanic.png', 'Romance', 'lover on ship', 1000, 39.99, 'Titanic'),
+('12', 'huckleberry.png', 'Adventure Fiction', 'Follows the journey of a fictional character Huckleberry Finn', 72, 13.99, 'Adventures of Huckleberry Finn'),
+('12345', 'math_cover.jpeg', 'Educational', 'College math book', 123, 123.99, 'College Mathematics: Fourth'),
+('123456789', 'image', 'Science', 'Book about science', 0, 199.99, 'Science Book'),
+('17', 'oxford_title.jpeg', 'Dictionary', 'Words with definitions', 1753, 9.99, 'Oxford Dictionary of English'),
+('2000', 'nyt.png', 'Informational', 'daily news', 200, 2.99, 'New York Time'),
+('232', 'dragon.png', 'Fiction', 'Ancient Chinese military treatise', 9, 99.99, 'The Art of War'),
+('2482', 'gatsby.png', 'Historical Fiction', 'The story about the fictional town of the West and East Egg of Long Island in 1922', 94, 24.99, 'The Great Gatsby'),
+('2567', 'red_apple.jpeg', 'Romance', 'Vampires, Werewolves, and humans collide', 345, 19.99, 'Twilight'),
+('3232', 'blakegriffin.jpeg', 'Biography', 'Biography for NBA player Blake Griffin', 32, 32.99, 'Blake Griffin: On The Rise'),
+('3248', 'dress_leaves.png', 'Fiction', 'A story during the American Civil War', 89, 9.99, 'Gone with the Wind'),
+('3891', 'silhouette.jpeg', 'Thriller Novel', 'The mysterious disappearance of a man\'s wife', 4, 39.99, 'Gone Girl'),
+('39', 'racecar.png', 'Informational', 'A Nascar fan\'s ultimate guide behind the wheel', 654, 15.99, 'Nascar: Behind the Wheel'),
+('483', 'mockingbird.jpeg', 'Fiction', 'A lawyer defends his racially-profiled client', 23, 23.99, 'To Kill a Mockingbird'),
+('495', 'clouds.png', 'Non-Fiction', 'Details of the famous 1959 murder of the Herber Clutter family', 93, 11.99, 'In Cold Blood'),
+('58320', 'wiseman.png', 'Science Fiction', 'A black and white dystopian world', 99, 17.99, 'The Giver'),
+('74839', 'coding.jpeg', 'Informational', 'Introduction to software languages', 1001, 29.99, 'Software Languages'),
+('84892', 'redboxcar.png', 'Fiction', 'Story about the boxcar children', 54, 9.99, 'The Boxcar Children'),
+('930', 'bluestone.jpg', 'Audio Book', 'Learn new languages', 293, 59.99, 'Rosetta Stone');
 
 -- --------------------------------------------------------
 
@@ -179,7 +206,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`Order_ID`, `Item_ID`, `Cust_ID`, `Order_date`, `Payment_Option`, `Price`) VALUES
-(1, '2000', 100, '2018-04-03', 'CASH', 1000.00);
+(1, '2000', 100, '2018-04-03', 'CASH', '1000.00');
 
 -- --------------------------------------------------------
 
@@ -369,12 +396,14 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `IDno` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100011232;
+  MODIFY `IDno` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1293827172;
+
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `Order_ID` int(9) NOT NULL AUTO_INCREMENT;
+  MODIFY `Order_ID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- Constraints for dumped tables
 --
@@ -444,8 +473,3 @@ ALTER TABLE `publisher`
 --
 ALTER TABLE `staff`
   ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`S_Ssn`) REFERENCES `person` (`Ssn`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
