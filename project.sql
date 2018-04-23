@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 23, 2018 at 09:47 PM
+-- Generation Time: Apr 23, 2018 at 11:14 PM
 -- Server version: 5.6.34-log
--- PHP Version: 7.1.5
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -97,8 +97,7 @@ INSERT INTO `customer` (`Cust_Ssn`, `IDno`, `Email`, `Address`, `Created_date`, 
 ('940389123', 847373390, 'zzzpath3000@gmail.com', '2535 Longview Avenue, New York', '2018-04-15 03:00:00', 'Powerstrong8', 'parkbound8'),
 ('947895321', 992021756, 'ccdentistrys@gmail.com', '2283 Stoneybrook Road Cary, NC 27513', '2018-04-07 04:10:38', 'CC2018', '9ds95u5m'),
 ('948693832', 100011231, 'mcdonald@email.com', '1222 West Lane, Arlington TX, 78544', '2018-04-01 00:00:00', 'McDonny', 'pass12311'),
-('968427641', 928374443, 'jeffdafisher@aol.com', '1263 Callison Lane Wilmington, DE', '2018-04-22 08:16:09', 'fishstar65', 'thefishboy11'),
-('993765478', 129485729, 'davids_2018@yahoo.com', '4816 Shearwood Forest Drive Salem, NH', '2018-04-01 17:48:47', 'newDavidact', 'dio0w98');
+('968427641', 928374443, 'jeffdafisher@aol.com', '1263 Callison Lane Wilmington, DE', '2018-04-22 08:16:09', 'fishstar65', 'thefishboy11');
 
 -- --------------------------------------------------------
 
@@ -215,7 +214,6 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`Order_ID`, `Item_ID`, `Cust_ID`, `Order_date`, `Payment_Option`, `Price`) VALUES
-(1, '2000', 100, '2018-04-03', 'CASH', 1000.00),
 (2, '12', 100, '2018-04-23', 'Cash', 900.00),
 (3, '123456789', 100, '2018-04-23', 'Credit', 80.00);
 
@@ -460,8 +458,8 @@ ALTER TABLE `movie`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`Cust_ID`) REFERENCES `customer` (`IDno`),
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`Item_ID`) REFERENCES `item` (`Item_ID`);
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`Cust_ID`) REFERENCES `customer` (`IDno`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`Item_ID`) REFERENCES `item` (`Item_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `periodical`
