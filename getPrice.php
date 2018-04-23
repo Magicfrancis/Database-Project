@@ -19,7 +19,7 @@
 					$day = $_POST["day"];
 					$sql = "SELECT SUM(PRICE)
                   FROM ORDERS O JOIN $id I ON O.Item_ID=I.ID
-                  WHERE Order_date='2018-04-14';";
+                  WHERE Order_date='$day';";
 
           $result = $conn->query($sql);
           if ($result->num_rows > 0) {
