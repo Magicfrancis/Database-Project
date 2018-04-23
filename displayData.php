@@ -244,7 +244,7 @@
 		?>
 		<html>
 		<body>
-		<h1>Staff</h1>
+		<h1>Director</h1>
 		<hr>
 		<table border = '2'>
 		<tr>
