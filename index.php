@@ -9,17 +9,17 @@
 		<h1>Database Project</h1>
 
 
-		<a href="customerForm.php">Customer Update</a>
+		<a href="customerForm.php">New Customer</a>
 		<br/>
-		<a href="itemForm.php">Item Update</a>
+		<a href="itemForm.php">New Item</a>
 		<br/>
-		<a href="orderForm.php">Create order</a>
+		<a href="orderForm.php">Place an Order</a>
 		<br/>
-		<a href="getOrderForm.php">Get Order Details</a>
+		<a href="getOrderForm.php">Retrieve Order Details</a>
 		<br/>
-		<a href="getPurchasedForm.php">Get Customer Purchased Details</a>
+		<a href="getPurchasedForm.php">Retrieve Customer Purchased Details</a>
 		<br/>		
-		<a href="deleteCustomerForm.php">Delete Customer</a>
+		<a href="deleteCustomerForm.php">Delete a Customer</a>
 		<br/>
 		<a href="getPriceOnDay.php">Get Item Price on specific day</a>
 		<br/>

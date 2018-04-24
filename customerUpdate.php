@@ -24,7 +24,7 @@
 					$pass = $_POST["cust_pass"];
 					$sql = "INSERT INTO `customer` (`Cust_Ssn`, `IDno`, `Email`, `Address`, `Created_date`, `Username`, `Password`) VALUES ('$ssn', '$id', '$email', '$address', '$nowFormat', '$user', '$pass');";
 					if ($conn->query($sql) === TRUE) {
-    				echo "New record created successfully";
+    				echo "New record created successfully!";
 					} else {
 					    echo "Error: " . $sql . "<br>" . $conn->error;
 					}
